@@ -1,36 +1,24 @@
-package private_190313;
+package source;
 
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.Frame;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.util.ArrayList;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
-public class Private {
+public class Main {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
-		gameFrame gameframe = new gameFrame(); // 게임실행객체 생성
+		System.out.println("Game Start");
+		GameFrame gameframe = new GameFrame(); // 게임실행객체 생성
 
 	}
 
 }
 
 @SuppressWarnings("serial")
-class gameFrame extends JFrame implements Runnable, KeyListener {
+class GameFrame extends Frame implements Runnable, KeyListener {
 
 	// 키설정
 	boolean KeyUp = false; // 위
@@ -39,6 +27,13 @@ class gameFrame extends JFrame implements Runnable, KeyListener {
 	boolean KeyRight = false; // 오른쪽
 	boolean KeyZ = false; // 투사체 발사
 	boolean KeyX = false; // 폭탄
+
+	public final static int UP_PRESSED = 0x001;
+	public final static int DOWN_PRESSED = 0x002;
+	public final static int LEFT_PRESSED = 0x004;
+	public final static int RIGHT_PRESSED = 0x008;
+	public final static int FIRE_PRESSED = 0x010;
+	public final static int BOMB_PRESSED = 0x012;
 
 	// 사용되는 변수 선언
 	int screenWidth; // 전체화면 가로크기
@@ -498,10 +493,9 @@ class gameFrame extends JFrame implements Runnable, KeyListener {
 				enemyList.remove(i);
 
 			}
-			
-			if (loopCounter % 80 == 0 || loopCounter % 90 == 0 ||loopCounter % 100 == 0) {
-				
-				
+
+			if (loopCounter % 80 == 0 || loopCounter % 90 == 0 || loopCounter % 100 == 0) {
+
 			}
 
 			if (Crash(playerx, playery, enemy.x, enemy.y, playerImg[0], enemyImg)) {
@@ -775,7 +769,6 @@ class gameFrame extends JFrame implements Runnable, KeyListener {
 
 	}
 
-	
 	class Enemy {
 
 		int x;

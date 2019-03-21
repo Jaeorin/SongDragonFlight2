@@ -1,4 +1,4 @@
-package private_190313_master;
+package example;
 
 import java.awt.Canvas;
 import java.awt.Color;

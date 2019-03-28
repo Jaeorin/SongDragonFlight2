@@ -28,12 +28,16 @@ class GameFrame extends Frame implements Runnable, KeyListener {
 	boolean KeyZ = false; // 투사체 발사
 	boolean KeyX = false; // 폭탄
 
+	// !!중요!!
+	// 비트 연산자
+	// 왜 써야 하는지??
+	// https://elkeipy.tistory.com/entry/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0%EC%9E%90
 	public final static int UP_PRESSED = 0x001;
 	public final static int DOWN_PRESSED = 0x002;
 	public final static int LEFT_PRESSED = 0x004;
 	public final static int RIGHT_PRESSED = 0x008;
 	public final static int FIRE_PRESSED = 0x010;
-	public final static int BOMB_PRESSED = 0x012;
+	public final static int BOMB_PRESSED = 0x020;
 
 	// 사용되는 변수 선언
 	int screenWidth; // 전체화면 가로크기
